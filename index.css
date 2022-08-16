@@ -16,6 +16,11 @@
   float: left;
 }
 
+.reviewCard:hover
+{
+  cursor: pointer;
+}
+
 .reviewThumbnail
 {
   position: absolute;
