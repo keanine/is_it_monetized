@@ -13,8 +13,8 @@ function start()
         
         //for (let i = 0; i < allGameData.length; i++)
         //{
-
-            document.getElementById("gameTitle").textContent = allGameData[gameID].title;
+            let gameData = allGameData.find(x => x.gameID === gameID);
+            document.getElementById("gameTitle").textContent = gameData.title;
 
             
             fetch('./data/games/' + gameID + '.json')
