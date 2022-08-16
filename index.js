@@ -4,7 +4,7 @@ function start()
 {
     const element = document.getElementById("reviewList");
 
-    fetch('./game_data.json')
+    fetch('./data/game_database.json')
     .then(result => result.json())
     .then((output) => {
         console.log('Output: ', output);
@@ -19,3 +19,17 @@ function start()
         }
     }).catch(err => console.error(err));
 }
+
+function goto(page, arg)
+{
+    window.location.href = page + '?id=' + arg;
+}
+
+    // Game Page
+
+    // let jsonID = json.gameID;
+    // fetch('./data/games/' + jsonID + '.json')
+    // .then(result => result.json())
+    // .then((output) => {
+    //     console.log('Output: ', output.Paid);
+    // }).catch(err => console.error(err));

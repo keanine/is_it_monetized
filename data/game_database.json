@@ -1,0 +1,26 @@
+[
+    {
+        "gameID": "control",
+        "title": "Control",
+        "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/f66a0c26ea3a640283a18af4915c577a.png",
+        "rating": "Light"
+    },
+    {
+        "gameID": "multiversus",
+        "title": "Multi-Versus",
+        "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/442790c49402040e5e663eaaa4ed1e7e.png",
+        "rating": "Middle"
+    },
+    {
+        "gameID": "metroid_dread",
+        "title": "Metroid Dread",
+        "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/38cfea09e10bd786ff870d78de0cb62b.png",
+        "rating": "Light"
+    },
+    {
+        "gameID": "fortnite",
+        "title": "Fortnite",
+        "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/6c4d541fc68d426aa028bc05f38164d1.png",
+        "rating": "Heavy"
+    }
+]

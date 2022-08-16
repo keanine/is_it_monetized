@@ -1,0 +1,40 @@
+html
+{
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body
+{
+  background-color: #1a2536;
+  margin: 0px;
+  padding: 0px;
+  min-width: 840px;
+}
+
+#header
+{
+  background-color: #1f2c40;
+  height: 80px;
+  width: auto;
+  padding-left: 100px;
+  padding-right: 20px;
+  font-size: 35px;
+  line-height: 76px;
+}
+
+.headerButton
+{
+  float:right;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  height: 40px;
+}
+
+a
+{
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+}

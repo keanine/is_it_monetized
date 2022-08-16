@@ -3,8 +3,8 @@
 	<head>
 		<title>Is it Monetized</title>
 		
+		<link rel="stylesheet" href="main.css">
 		<link rel="stylesheet" href="index.css">
-		<script type="text/javascript" src="require.js"></script>
 		<script type="text/javascript" src="index.js"></script>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +13,12 @@
 	</head>
 	<body onload="start()">
 		<div id="header">
-			Is it Monetized
+			<a href="index.html">Is it Monetized</a>
 			<a href="https://ko-fi.com/" target="_blank"><img class="headerButton" src="assets/svg/kofi_icon.svg" alt="Ko-fi"></img></a>
-			<!-- <img class="headerButton" src="assets/svg/kofi_icon.svg" alt="Ko-fi"></img> -->
 		</div>
+		
 		<div id="reviewList">
-			<!-- <div class="reviewCard">
+			<div class="reviewCard" onclick="goto('game.html', 'control')">
 				<img class="reviewThumbnail" alt="Game Boxart" src="https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/f66a0c26ea3a640283a18af4915c577a.png">
 				<p class="reviewTitle">Control</p>
 				<p class="reviewRating">Low</p>	
@@ -37,7 +37,7 @@
 				<img class="reviewThumbnail" alt="Game Boxart" src="https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/f66a0c26ea3a640283a18af4915c577a.png">
 				<p class="reviewTitle">Control</p>
 				<p class="reviewRating">Low</p>	
-			</div> -->
+			</div>
 		</div>
 	</body>
 </html>
