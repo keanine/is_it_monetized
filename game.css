@@ -55,4 +55,10 @@
   float: right;
   width: 30px;
   height: 30px;
+  color: #c7c7c7;
+}
+
+.checkmarkActive
+{
+  color: #ff9900;
 }
