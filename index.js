@@ -14,7 +14,7 @@ function start()
             let rating = output[i].rating;
             let boxart = output[i].boxart;
             
-            element.innerHTML += '<div class="reviewCard"  onclick="goto(\'game.html\', \''+ output[i].gameID + '\')"><img class="reviewThumbnail" alt="Game Boxart" src="' + boxart + '"><p class="reviewTitle">' + title + '</p><p class="reviewRating">' + rating + '</p>	</div>';
+            element.innerHTML += '<div class="reviewCard"  onclick="goto(\'game\', \''+ output[i].gameID + '\')"><img class="reviewThumbnail" alt="Game Boxart" src="' + boxart + '"><p class="reviewTitle">' + title + '</p><p class="reviewRating">' + rating + '</p>	</div>';
         }
     }).catch(err => console.error(err));
 }
