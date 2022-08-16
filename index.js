@@ -1,5 +1,4 @@
 
-
 function start()
 {
     const element = document.getElementById("reviewList");
