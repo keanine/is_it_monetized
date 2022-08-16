@@ -31,8 +31,10 @@
 {
   position: absolute;
   margin-left: 165px;
-  
-  font-size: 22px;
+  width: 220px;
+  word-wrap: normal;
+
+  font-size: 20px;
 }
 
 .reviewRating

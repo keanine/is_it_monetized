@@ -22,5 +22,47 @@
     "title": "Fortnite",
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/6c4d541fc68d426aa028bc05f38164d1.png",
     "rating": "Heavy"
+  },
+  {
+    "gameID": "spiderman_remastered",
+    "title": "Marvel’s Spider-Man Remastered",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/a85d6bc329aeaf43fe76fbb48b8b9325.png",
+    "rating": "Light"
+  },
+  {
+    "gameID": "legostarwars_skywalkersaga",
+    "title": "Lego Star Wars: The Skywalker Saga",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/077badd2adc72d657dc5917564b0c028.jpg",
+    "rating": "Middle"
+  },
+  {
+    "gameID": "deathloop",
+    "title": "Deathloop",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/c27b7f8c60c0fbdd0efa30fa0821fc3f.png",
+    "rating": "Light"
+  },
+  {
+    "gameID": "pulsar_lostcolony",
+    "title": "PULSAR: Lost Colony",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/b9e4ce50f6c1ba80d31aa4826948a5a6.png",
+    "rating": "Light"
+  },
+  {
+    "gameID": "diceydungeons",
+    "title": "Dicey Dungeons",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/872f06174139db69135c46e3fe37c267.png",
+    "rating": "Light"
+  },
+  {
+    "gameID": "zelda_breathofthewild",
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/3bf47241fd8ea682509ba6b7cc875f72.jpg",
+    "rating": "Light"
+  },
+  {
+    "gameID": "apexlegends",
+    "title": "Apex Legends",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/0d7a3aef18b1eb97e70a5148e2a2646f.jpg",
+    "rating": "High"
   }
 ]

@@ -3,7 +3,7 @@
   "PaidDLC": true,
   "Microtransactions": false,
   "Advertisements": false,
-  "SeasonPass": false,
+  "SeasonPass": true,
   "PremiumBattlePass": false,
   "PremiumCurrency": false,
   "PremiumLootBoxes": false,
