@@ -15,7 +15,7 @@ function start()
         //{
             let gameData = allGameData.find(x => x.gameID === gameID);
             document.getElementById("gameTitle").textContent = gameData.title;
-
+            document.getElementById("gameBoxart").src = gameData.boxart;
             
             fetch('./data/games/' + gameID + '.json')
             .then(result => result.json())
