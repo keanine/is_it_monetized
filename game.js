@@ -1,7 +1,10 @@
 
 function start()
 {
-    const element = document.getElementById("gameBlock");
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    //console.log("URLParam: " + urlParams.get('id'));
+    const gameID = urlParams.get('id');
 
     fetch('./data/game_database.json')
     .then(result => result.json())
@@ -10,13 +13,11 @@ function start()
         
         //for (let i = 0; i < allGameData.length; i++)
         //{
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
 
-            document.getElementById("gameTitle").textContent = allGameData[urlParams.id].title;
+            document.getElementById("gameTitle").textContent = allGameData[gameID].title;
 
             
-            fetch('./data/games/' + allGameData[urlParams.id].gameID + '.json')
+            fetch('./data/games/' + gameID + '.json')
             .then(result => result.json())
             .then((monetizationData) => {
                 console.log('Monetization Data: ', monetizationData);
