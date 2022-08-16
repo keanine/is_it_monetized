@@ -1,0 +1,20 @@
+[
+  {
+    "gameID": "test_id",
+    "title": "Test Game",
+    "boxart": "http://www.google.co.uk/image.png",
+    "rating": "Light"
+  },
+  {
+    "gameID": "test_id",
+    "title": "Test Game",
+    "boxart": "http://www.google.co.uk/image.png",
+    "rating": "Light"
+  },
+  {
+    "gameID": "test_id",
+    "title": "Test Game",
+    "boxart": "http://www.google.co.uk/image.png",
+    "rating": "Light"
+  }
+]
