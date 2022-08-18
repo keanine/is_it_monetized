@@ -76,5 +76,11 @@
     "title": "F1 2021",
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/a577c4583cd6abda9034068c1bae81cc.png",
     "rating": "Medium"
+  },
+  {
+    "gameID": "starwars_jedifallenorder",
+    "title": "Star Wars Jedi: Fallen Order",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/935a281a70ae21d54479c9c468145f7e.png",
+    "rating": "Light"
   }
 ]
