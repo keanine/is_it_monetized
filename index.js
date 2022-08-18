@@ -10,7 +10,7 @@ function start()
     reviewListElement = document.getElementById("reviewList");
 
     recoverGameIndexFromURL();
-    
+
     fetch('./data/game_database.json')
     .then(result => result.json())
     .then((output) => {
@@ -82,7 +82,16 @@ function recoverGameIndexFromURL()
 {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    gameDataIndex = (urlParams.get('page') - 1) * gamesPerPage;
+    const param = urlParams.get('page');
+
+    if (param == null)
+    {
+        gameDataIndex = 0;
+    }
+    else
+    {
+        gameDataIndex = (param - 1) * gamesPerPage;
+    }
 }
 
     // Game Page
