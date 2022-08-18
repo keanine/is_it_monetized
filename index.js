@@ -9,6 +9,8 @@ function start()
 {
     reviewListElement = document.getElementById("reviewList");
 
+    recoverGameIndexFromURL();
+    
     fetch('./data/game_database.json')
     .then(result => result.json())
     .then((output) => {
@@ -22,12 +24,18 @@ function goto(page, arg)
     window.location.href = page + '?id=' + arg;
 }
 
+function sortResultsInDatabase()
+{
+    //Sort by date
+}
+
 function nextPage()
 {
     if (gameDataIndex + gamesPerPage < database.length)
     {
         reviewListElement.innerHTML = "";
         gameDataIndex += gamesPerPage;
+        updateURL();
         loadPage();
     }
 }
@@ -38,6 +46,7 @@ function prevPage()
     {
         reviewListElement.innerHTML = "";
         gameDataIndex -= gamesPerPage;
+        updateURL();
         loadPage();
     }
 }
@@ -46,13 +55,13 @@ function loadPage()
 {
     for (let i = gameDataIndex; i < gameDataIndex + gamesPerPage; i++)
     {
-        let gameID = database[i].gameID;
-        let title = database[i].title;
-        let rating = database[i].rating;
-        let boxart = database[i].boxart;
-
         if (i < database.length)
         {
+            let gameID = database[i].gameID;
+            let title = database[i].title;
+            let rating = database[i].rating;
+            let boxart = database[i].boxart;
+
             reviewListElement.innerHTML += '<div class="reviewCard"  onclick="goto(\'game\', \''+ gameID + '\')"><img class="reviewThumbnail" alt="Game Boxart" src="' + boxart + '"><p class="reviewTitle">' + title + '</p><p class="reviewRating">' + rating + '</p>	</div>';
         }
         else
@@ -60,6 +69,20 @@ function loadPage()
             return;
         }
     }
+}
+
+function updateURL()
+{        
+    var pageNumber = 1 + (gameDataIndex / gamesPerPage);
+    var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + '?page=' + pageNumber;    
+    window.history.pushState({ path: refresh }, '', refresh);
+}
+
+function recoverGameIndexFromURL()
+{
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    gameDataIndex = (urlParams.get('page') - 1) * gamesPerPage;
 }
 
     // Game Page
