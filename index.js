@@ -91,6 +91,7 @@ function updateURL()
 {        
     var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + '?page=' + currentPage;    
     window.history.pushState({ path: refresh }, '', refresh);
+    // document.getElementById("title").innerText = "Is it Monetized (Page " + currentPage + ")";
 }
 
 function recoverGameIndexFromURL()

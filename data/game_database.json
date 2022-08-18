@@ -9,7 +9,7 @@
     "gameID": "multiversus",
     "title": "Multi-Versus",
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/442790c49402040e5e663eaaa4ed1e7e.png",
-    "rating": "Middle"
+    "rating": "Medium"
   },
   {
     "gameID": "metroid_dread",
@@ -33,7 +33,7 @@
     "gameID": "legostarwars_skywalkersaga",
     "title": "Lego Star Wars: The Skywalker Saga",
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/077badd2adc72d657dc5917564b0c028.jpg",
-    "rating": "Middle"
+    "rating": "Medium"
   },
   {
     "gameID": "deathloop",
@@ -64,5 +64,17 @@
     "title": "Apex Legends",
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/0d7a3aef18b1eb97e70a5148e2a2646f.jpg",
     "rating": "High"
+  },
+  {
+    "gameID": "F1_2022",
+    "title": "F1 22",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/fba05666aec048c550089d9bc5ac8f53.png",
+    "rating": "Medium"
+  },
+  {
+    "gameID": "F1_2021",
+    "title": "F1 2021",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/a577c4583cd6abda9034068c1bae81cc.png",
+    "rating": "Medium"
   }
 ]
