@@ -7,16 +7,22 @@ function start()
 
      const checkmarkCollection = document.getElementsByClassName("checkmark");
 
-    fetch('./data/game_database.json')
-    .then(result => result.json())
+    fetch('./data/game_database.json', {
+        headers: {
+            'Cache-Control': 'no-cache'
+        }
+    }).then(result => result.json())
     .then((allGameData) => {        
         
         let gameData = allGameData.find(x => x.gameID === gameID);
         document.getElementById("gameTitle").textContent = gameData.title;
         document.getElementById("gameBoxart").src = gameData.boxart;
         
-        fetch('./data/games/' + gameID + '.json')
-        .then(result => result.json())
+        fetch('./data/games/' + gameID + '.json', {
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        }).then(result => result.json())
         .then((monetizationData) => {
 
             if (monetizationData.Paid >= 1) activateCheckmark(checkmarkCollection[0]);

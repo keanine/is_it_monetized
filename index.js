@@ -12,8 +12,11 @@ function start()
 
     recoverGameIndexFromURL();
 
-    fetch('./data/game_database.json')
-    .then(result => result.json())
+    fetch('./data/game_database.json', {
+        headers: {
+            'Cache-Control': 'no-cache'
+        }
+    }).then(result => result.json())
     .then((output) => {
         database = output;
         loadPage();
