@@ -7,12 +7,12 @@
   "PremiumBattlePass": true,
   "PremiumCurrency": true,
   "PremiumLootBoxes": false,
-  "PremiumCosmetics": false,
-  "DeluxeEdition": false,
+  "PremiumCosmetics": true,
+  "DeluxeEdition": true,
   "PreorderBonus": false,
   "Subscription": false,
-  "PayToWin": true,
-  "FOMOMechanics": false,
+  "PayToWin": false,
+  "FOMOMechanics": true,
   "NFTs": false,
   "PlayerMarket": false
 }
