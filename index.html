@@ -17,7 +17,7 @@
 			<a href="https://ko-fi.com/keanine" target="_blank"><img class="headerButton" src="assets/svg/kofi_icon.svg" alt="Ko-fi"></img></a>
 		</div>
 		
-		<div id="reviewList">
+		<div id="reviewList" class="noselect">
 			<div class="reviewCard" onclick="goto('game.html', 'control')">
 				<div class="reviewThumbnailPlaceholder"></div>
 				<div class="reviewTitlePlaceholder"></div>
@@ -39,9 +39,11 @@
 				<div class="reviewRatingPlaceholder"></div>
 			</div>
 		</div>
-		<div style="clear:both; margin:auto; text-align: center; padding: 15px;">
-			<button onclick="prevPage()">Prev</button>
-			<button onclick="nextPage()">Next</button>
+
+		<div id="paginationBar" class="noselect">
+			<div class="paginationButton paginationPrev" onclick="prevPage()">Prev</div>
+			<div id="paginationPages"></div>
+			<div class="paginationButton paginationNext" onclick="nextPage()">Next</div>
 		</div>
 	</body>
 </html>

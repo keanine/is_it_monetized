@@ -4,53 +4,39 @@ function start()
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const gameID = urlParams.get('id');
-    
-    //var svgItem = document.getElementById("svgCheckmark");
-    //console.log(svgItem);
-	//svgItem.setAttribute("fill", "#c7c7c7");
 
      const checkmarkCollection = document.getElementsByClassName("checkmark");
-    // console.log(checkmarkCollection);
-    // for (let i = 0; i < checkmarkCollection.length; i++) {
-    //     changeCheckmarkColor(checkmarkCollection[i], "#c7c7c7");
-    // }
 
     fetch('./data/game_database.json')
     .then(result => result.json())
-    .then((allGameData) => {
-        //console.log('All Game Data: ', allGameData);
+    .then((allGameData) => {        
         
-        //for (let i = 0; i < allGameData.length; i++)
-        //{
-            let gameData = allGameData.find(x => x.gameID === gameID);
-            document.getElementById("gameTitle").textContent = gameData.title;
-            document.getElementById("gameBoxart").src = gameData.boxart;
-            
-            fetch('./data/games/' + gameID + '.json')
-            .then(result => result.json())
-            .then((monetizationData) => {
+        let gameData = allGameData.find(x => x.gameID === gameID);
+        document.getElementById("gameTitle").textContent = gameData.title;
+        document.getElementById("gameBoxart").src = gameData.boxart;
+        
+        fetch('./data/games/' + gameID + '.json')
+        .then(result => result.json())
+        .then((monetizationData) => {
 
-                if (monetizationData.Paid >= 1) activateCheckmark(checkmarkCollection[0]);
-                if (monetizationData.PaidDLC >= 1) activateCheckmark(checkmarkCollection[1]);
-                if (monetizationData.Microtransactions >= 1) activateCheckmark(checkmarkCollection[2]);
-                if (monetizationData.Advertisements >= 1) activateCheckmark(checkmarkCollection[3]);
-                if (monetizationData.SeasonPass >= 1) activateCheckmark(checkmarkCollection[4]);
-                if (monetizationData.PremiumBattlePass >= 1) activateCheckmark(checkmarkCollection[5]);
-                if (monetizationData.PremiumCurrency >= 1) activateCheckmark(checkmarkCollection[6]);
-                if (monetizationData.PremiumLootBoxes >= 1) activateCheckmark(checkmarkCollection[7]);
-                if (monetizationData.PremiumCosmetics >= 1) activateCheckmark(checkmarkCollection[8]);
-                if (monetizationData.DeluxeEdition >= 1) activateCheckmark(checkmarkCollection[9]);
-                if (monetizationData.PreorderBonus >= 1) activateCheckmark(checkmarkCollection[10]);
-                if (monetizationData.Subscription >= 1) activateCheckmark(checkmarkCollection[11]);
-                if (monetizationData.PayToWin >= 1) activateCheckmark(checkmarkCollection[12]);
-                if (monetizationData.FOMOMechanics >= 1) activateCheckmark(checkmarkCollection[13]);
-                if (monetizationData.NFTs >= 1) activateCheckmark(checkmarkCollection[14]);
-                if (monetizationData.PlayerMarket >= 1) activateCheckmark(checkmarkCollection[15]);
+            if (monetizationData.Paid >= 1) activateCheckmark(checkmarkCollection[0]);
+            if (monetizationData.PaidDLC >= 1) activateCheckmark(checkmarkCollection[1]);
+            if (monetizationData.Microtransactions >= 1) activateCheckmark(checkmarkCollection[2]);
+            if (monetizationData.Advertisements >= 1) activateCheckmark(checkmarkCollection[3]);
+            if (monetizationData.SeasonPass >= 1) activateCheckmark(checkmarkCollection[4]);
+            if (monetizationData.PremiumBattlePass >= 1) activateCheckmark(checkmarkCollection[5]);
+            if (monetizationData.PremiumCurrency >= 1) activateCheckmark(checkmarkCollection[6]);
+            if (monetizationData.PremiumLootBoxes >= 1) activateCheckmark(checkmarkCollection[7]);
+            if (monetizationData.PremiumCosmetics >= 1) activateCheckmark(checkmarkCollection[8]);
+            if (monetizationData.DeluxeEdition >= 1) activateCheckmark(checkmarkCollection[9]);
+            if (monetizationData.PreorderBonus >= 1) activateCheckmark(checkmarkCollection[10]);
+            if (monetizationData.Subscription >= 1) activateCheckmark(checkmarkCollection[11]);
+            if (monetizationData.PayToWin >= 1) activateCheckmark(checkmarkCollection[12]);
+            if (monetizationData.FOMOMechanics >= 1) activateCheckmark(checkmarkCollection[13]);
+            if (monetizationData.NFTs >= 1) activateCheckmark(checkmarkCollection[14]);
+            if (monetizationData.PlayerMarket >= 1) activateCheckmark(checkmarkCollection[15]);
 
-            }).catch(err => console.error(err));
-            
-            //element.innerHTML += '<div class="reviewCard"  onclick="goto(\'game.html\', \''+ output[i].gameID + '\')"><img class="reviewThumbnail" alt="Game Boxart" src="' + boxart + '"><p class="reviewTitle">' + title + '</p><p class="reviewRating">' + rating + '</p>	</div>';
-        //}
+        }).catch(err => console.error(err));
     }).catch(err => console.error(err));
 }
 
