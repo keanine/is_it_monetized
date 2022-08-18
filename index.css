@@ -46,3 +46,53 @@
   font-size: 16px;
   color: #FF9900;
 }
+
+#reviewListLoading
+{
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.reviewThumbnailPlaceholder
+{
+  background-color: #1a2536;
+
+  position: absolute;
+  height: 210px;
+  aspect-ratio: 600 / 900;
+  margin: 5px;
+}
+
+.reviewTitlePlaceholder
+{
+  background-color: #1a2536;
+
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 165px;
+  width: 215px;
+  height: 25px;
+  word-wrap: normal;
+
+  border-radius: 100px;
+
+  font-size: 20px;
+}
+
+.reviewRatingPlaceholder
+{
+  background-color: #1a2536;
+  color: #FF9900;
+
+  position: absolute;
+  margin-left: 165px;
+  margin-top: 175px;
+  
+  border-radius: 100px;
+  
+  width: 60px;
+  height: 20px;
+  font-size: 16px;
+}

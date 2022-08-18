@@ -33,7 +33,6 @@ function nextPage()
 {
     if (gameDataIndex + gamesPerPage < database.length)
     {
-        reviewListElement.innerHTML = "";
         gameDataIndex += gamesPerPage;
         updateURL();
         loadPage();
@@ -44,7 +43,6 @@ function prevPage()
 {
     if (gameDataIndex - gamesPerPage >= 0)
     {
-        reviewListElement.innerHTML = "";
         gameDataIndex -= gamesPerPage;
         updateURL();
         loadPage();
@@ -53,6 +51,8 @@ function prevPage()
 
 function loadPage()
 {
+    reviewListElement.innerHTML = "";
+    
     for (let i = gameDataIndex; i < gameDataIndex + gamesPerPage; i++)
     {
         if (i < database.length)
