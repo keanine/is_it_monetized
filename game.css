@@ -24,6 +24,9 @@
   position: absolute;
   margin-top: 14px;
   height: 440px;
+  /* width: 660px; */
+  aspect-ratio: 600 / 900;
+  /* aspect-ratio: 600 / 900; */
 }
 
 #monetizationCardContainer

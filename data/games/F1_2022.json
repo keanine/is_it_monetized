@@ -9,7 +9,7 @@
   "PremiumLootBoxes": false,
   "PremiumCosmetics": true,
   "DeluxeEdition": true,
-  "PreorderBonus": false,
+  "PreorderBonus": true,
   "Subscription": false,
   "PayToWin": false,
   "FOMOMechanics": true,

@@ -25,6 +25,7 @@
 {
   position: absolute;
   height: 220px;
+  aspect-ratio: 600 / 900;
 }
 
 .reviewTitle
