@@ -82,5 +82,11 @@
     "title": "Star Wars Jedi: Fallen Order",
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/935a281a70ae21d54479c9c468145f7e.png",
     "rating": "Light"
+  },
+  {
+    "gameID": "starwars_battlefront2_ea",
+    "title": "Star Wars Battlefront II (EA)",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/263253aaa403d4555a972b520d9f03eb.png",
+    "rating": "Light"
   }
 ]
