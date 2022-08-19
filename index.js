@@ -213,9 +213,9 @@ function search(resetPage)
 
     for (let i = 0; i < database.length; i++)
     {
-        console.log(database[i].title + " | " + searchTerm);
-        let databaseTitle = database[i].title.replace(/^"(.+)"$/,'$1');
-        console.log(databaseTitle + " | " + searchTerm);
+        //console.log(database[i].title + " | " + searchTerm);
+        let databaseTitle = database[i].title.replace(/^"(.+)"$/,'$1').toLowerCase();
+        //console.log(databaseTitle + " | " + searchTerm);
         if (databaseTitle.includes(searchTerm))
         {
             searchResults.push(database[i]);
