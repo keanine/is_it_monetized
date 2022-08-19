@@ -219,4 +219,5 @@ input::placeholder {
 {
   height: 24px;
   margin-left: 5px;
+  cursor: pointer;
 }
