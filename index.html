@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title id="title">Is it Monetized</title>
+		<title>Is it Monetized</title>
 		
 		<link rel="stylesheet" href="main.css">
 		<link rel="stylesheet" href="index.css">
@@ -13,8 +13,13 @@
 	</head>
 	<body onload="start()">
 		<div id="header">
-			<a href="/">Is it Monetized</a>
+			<div id="title"><a href="/">Is it Monetized</a></div>
 			<a href="https://ko-fi.com/keanine" target="_blank"><img class="headerButton" src="assets/svg/kofi_icon.svg" alt="Ko-fi"></img></a>
+			<div id="searchBar">
+				<input type="text" id="searchInput" title="search" placeholder="Search..." name="search">
+				<!-- <div id="searchButton" class="noselect">Go</div> -->
+				<img onclick="searchUsingInputBar()" id="searchButton" class="headerButton searchButton" src="assets/svg/search.svg" alt="Ko-fi"></img>
+			</div>
 		</div>
 		
 		<div id="reviewList" class="noselect">

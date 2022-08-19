@@ -48,3 +48,11 @@ a
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+
+#title
+{
+  float: left;
+  /* width: auto; */
+  height: 80px;
+  line-height: 80px;
+}
