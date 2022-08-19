@@ -143,7 +143,7 @@ function updateURL()
     {
         refresh += generateParam("page", currentPage);
     }
-    if (usingSearchArg)
+    if (usingSearchArg && searchTerm != null && searchTerm != "")
     {
         refresh += generateParam("search", searchTerm);
     }
@@ -192,12 +192,10 @@ function recoverSearchFromURL()
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const param = urlParams.get('search');
-    console.log(urlParams.entries());
 
     if (param != null)
     {
         searchTerm = param;
-        //getSearchTermFromSearchBar();
         search(false);
     }
 }
@@ -228,8 +226,6 @@ function search(resetPage)
     {
         firstPage();
     }
-
-    console.log(searchResults);
 }
 
 function createPaginationBar()
