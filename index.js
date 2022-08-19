@@ -55,6 +55,25 @@ function prevPage()
     }
 }
 
+function firstPage()
+{
+    gameDataIndex = 0;
+    currentPage = 1;
+    updateURL();
+    loadPage();
+}
+
+function lastPage()
+{    
+    let maxPages = database.length / gamesPerPage;
+    maxPages = Math.ceil(maxPages);
+
+    gameDataIndex = (maxPages - 1) * gamesPerPage;
+    currentPage = maxPages;
+    updateURL();
+    loadPage();
+}
+
 function goToPage(targetPage)
 {
     targetIndex = (targetPage - 1) * gamesPerPage;

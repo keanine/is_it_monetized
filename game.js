@@ -1,6 +1,17 @@
 
 function start()
-{    
+{
+    var cards = document.querySelectorAll('.monetizationCard');
+
+    // for (let i = 0; i < cards.length; i+=3)
+    // {
+    //     var tagsContainer = cards[i].querySelector('.tags');
+    //     if (tagsContainer)
+    //     {
+    //         tagsContainer.innerHTML += '<div class="tag"><img class="tagIcon" src="assets/svg/tag.svg" /><div class="tagText">cosmetic only</div></div>';    
+    //     }
+    // }
+
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const gameID = urlParams.get('id');

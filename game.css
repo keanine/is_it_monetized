@@ -23,7 +23,7 @@
 
   position: absolute;
   margin-top: 14px;
-  height: 440px;
+  height: 480px;
   /* width: 660px; */
   aspect-ratio: 600 / 900;
   /* aspect-ratio: 600 / 900; */
@@ -35,22 +35,66 @@
   position: absolute;
   margin: 0;
   margin-top:14px;
-  margin-left: 300px;
-  width: 534px;
+  margin-left: 340px;
+  width: 500px;
   min-height: 40px;
   font-size: 18px;
+  
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .monetizationCard
 {
   background-color: #1f2c40;
 
-  float: left;
-  height: 28px;
-  width: 235px;
-  margin-left: 8px;
-  margin-bottom: 8px;
+  min-height: 28px;
+  line-height: 32px;
+  /* width: 235px; */
+  /* margin-left: 8px; */
+  /* margin-bottom: 8px; */
+  margin: 4px;
   padding: 10px;
+  /* height: 60px; */
+}
+
+.cardText
+{
+  float: left;
+  width: 80%;
+}
+
+.tags
+{
+  float: left;
+  margin-top: 4px;
+}
+
+.tag
+{
+  background-color: #2a3b53;
+  height: 12px;
+  /* width: auto; */
+  float: left;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+  margin-right: 4px;
+}
+
+.tagText
+{
+  float: left;
+  font-size: 14px;
+  line-height: 10px;
+}
+
+.tagIcon
+{
+  width: 12px;
+  float: left;
+  margin-top: 0px;
+  margin-right: 5px;
 }
 
 .checkmark
