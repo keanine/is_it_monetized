@@ -57,6 +57,17 @@
   font-size: 24px;
 }
 
+.reviewCardPlaceholder
+{
+  background-color: #1f2c40;
+  width: 400px;
+  height: 220px;
+  margin-left: 13px;
+  margin-top: 13px;
+  float: left;
+  border-radius: 5px;
+}
+
 .reviewThumbnailPlaceholder
 {
   background-color: #1a2536;
@@ -194,21 +205,23 @@
   align-items: center;
 }
 
-input
+#searchInput
 {
   background-color: #3f536e;
   color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
   
   width: 220px;
   height: 22px;
-  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  border-radius: 5px 0px 0px 5px;
   border-color: #00000000;
-  font-family: 'Quicksand', sans-serif;
-  padding-left: 5px;
-  padding-right: 5px;
 }
 
-input::placeholder {
+#searchInput::placeholder {
   /* color: white; */
   color: #9eaabb;
   font-family: 'Quicksand', sans-serif;
@@ -217,8 +230,14 @@ input::placeholder {
 
 .searchButton
 {
-  height: 24px;
-  margin-left: 5px;
+  background-color: #2a3b53;
   cursor: pointer;
+
+  height: 28px;
+  margin-left: 0px;
   margin-right: 20px;
+  padding-left: 8px;
+  padding-right: 8px;
+  
+  border-radius: 0px 5px 5px 0px;
 }

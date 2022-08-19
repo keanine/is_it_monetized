@@ -195,7 +195,7 @@ function recoverSearchFromURL()
 
     if (param != null)
     {
-        searchTerm = param;
+        searchTerm = param.toLowerCase();
         search(false);
     }
 }
@@ -213,7 +213,10 @@ function search(resetPage)
 
     for (let i = 0; i < database.length; i++)
     {
-        if (database[i].title.toLowerCase().includes(searchTerm))
+        console.log(database[i].title + " | " + searchTerm);
+        let databaseTitle = database[i].title.replace(/^"(.+)"$/,'$1');
+        console.log(databaseTitle + " | " + searchTerm);
+        if (databaseTitle.includes(searchTerm))
         {
             searchResults.push(database[i]);
         }
