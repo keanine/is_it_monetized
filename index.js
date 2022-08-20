@@ -123,9 +123,19 @@ function loadPage()
             let gameID = filteredDatabase[i].gameID;
             let title = filteredDatabase[i].title;
             let rating = filteredDatabase[i].rating;
+            let saleType = filteredDatabase[i].saleType;
             let boxart = filteredDatabase[i].boxart;
+                    
+            let elementCode = `
+            <div class="reviewCard" onclick="goto(\'game\', \'${gameID}\')">
+                <img draggable="false" class="reviewThumbnail" alt="Game Boxart" src="${boxart}">
+                <p class="reviewTitle">${title}</p>
+                <p class="reviewSaleType">${saleType}</p>
+                <p class="reviewRating">${rating}</p>
+            </div>
+            `;
 
-            reviewListElement.innerHTML += '<div class="reviewCard" onclick="goto(\'game\', \''+ gameID + '\')"><img draggable="false" class="reviewThumbnail" alt="Game Boxart" src="' + boxart + '"><p class="reviewTitle">' + title + '</p><p class="reviewRating">' + rating + '</p>	</div>';
+            reviewListElement.innerHTML += elementCode;
         }
         else
         {
