@@ -1,18 +1,76 @@
 {
-  "Paid": false,
-  "PaidDLC": true,
-  "Microtransactions": false,
-  "Advertisements": false,
-  "SeasonPass": false,
-  "PremiumBattlePass": true,
-  "PremiumCurrency": true,
-  "PremiumLootBoxes": true,
-  "PremiumCosmetics": true,
-  "DeluxeEdition": true,
-  "PreorderBonus": true,
-  "Subscription": true,
-  "PayToWin": false,
-  "FOMOMechanics": true,
-  "NFTs": false,
-  "PlayerMarket": false
+  "Paid": {
+    "name": "Paid",
+    "value": false,
+    "tags": [
+      "Digital"
+    ]
+  },
+  "PaidDLC": {
+    "name": "Paid DLC",
+    "value": true,
+    "tags": []
+  },
+  "Advertisements": {
+    "name": "Advertisements",
+    "value": false,
+    "tags": []
+  },
+  "SeasonPass": {
+    "name": "Season Pass",
+    "value": false,
+    "tags": []
+  },
+  "PremiumBattlePass": {
+    "name": "Premium Battle Pass",
+    "value": true,
+    "tags": []
+  },
+  "PremiumCurrency": {
+    "name": "Premium Currency",
+    "value": true,
+    "tags": []
+  },
+  "PremiumLootBoxes": {
+    "name": "Premium Loot Boxes",
+    "value": true,
+    "tags": [
+      "Odds Displayed"
+    ]
+  },
+  "PremiumCosmetics": {
+    "name": "Premium Cosmetics",
+    "value": true,
+    "tags": []
+  },
+  "DeluxeEdition": {
+    "name": "Deluxe Edition",
+    "value": true,
+    "tags": []
+  },
+  "PreorderBonus": {
+    "name": "Pre-order Bonus",
+    "value": true,
+    "tags": []
+  },
+  "Subscription": {
+    "name": "Subscriptions",
+    "value": true,
+    "tags": []
+  },
+  "TimedStore": {
+    "name": "Timed Store",
+    "value": true,
+    "tags": []
+  },
+  "NFTs": {
+    "name": "NFTs",
+    "value": false,
+    "tags": []
+  },
+  "PlayerMarket": {
+    "name": "Player Market",
+    "value": false,
+    "tags": []
+  }
 }

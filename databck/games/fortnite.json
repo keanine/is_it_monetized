@@ -1,0 +1,18 @@
+{
+  "Paid": false,
+  "PaidDLC": true,
+  "Microtransactions": false,
+  "Advertisements": false,
+  "SeasonPass": false,
+  "PremiumBattlePass": true,
+  "PremiumCurrency": true,
+  "PremiumLootBoxes": true,
+  "PremiumCosmetics": true,
+  "DeluxeEdition": true,
+  "PreorderBonus": true,
+  "Subscription": true,
+  "PayToWin": false,
+  "FOMOMechanics": true,
+  "NFTs": false,
+  "PlayerMarket": false
+}

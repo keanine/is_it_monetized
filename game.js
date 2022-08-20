@@ -1,48 +1,76 @@
-function addMonetizationCard(text)
+let checkmarkCollection;
+
+function addMonetizationCard(data)
 {
+    let text = data.name;
+
     let container = document.getElementById("monetizationCardContainer");
-    let monetizationCardElement = `                    
-    <div class="monetizationCard"><div class="cardText">${text}</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-    `
+    var allCards = document.querySelectorAll('.monetizationCard');
+
+    let verticalAlignText = "";
+    if (data.tags.length == 0)
+    {
+        verticalAlignText = "cardTextCentered";
+    }
+
+    let monetizationCardElement = `
+    <div class="monetizationCard">
+        <div class="cardText ${verticalAlignText}">
+            ${text}
+        </div>
+        <svg class="checkmark checkmark${allCards.length}" viewBox="0 0 24 24">
+            <use href="#svgCheckmarkCross" />
+            <use href="#svgCheckmarkTick" style="display: none;" />
+        </svg>
+        <div class="tags" id="card${allCards.length}tags">
+        </div>
+    </div>
+    `;
 
     container.innerHTML += monetizationCardElement;
+    var tagsContainer = container.querySelector(`#card${allCards.length}tags`);
+    //container.appendChild(monetizationCardElement);
+    for (let i = 0; i < data.tags.length; i++)
+    {
+        addTagToCard(tagsContainer, data.tags[i]);
+    }
+
+    var checkmark = container.querySelector(`.checkmark${allCards.length}`);
+    console.log(container);
+    if (data.value == true) 
+    {
+        activateCheckmark(checkmark);
+    }
+}
+
+function addTagToCard(cardTags, tagText)
+{
+    cardTags.innerHTML += `
+    <div class="tag">
+        <img class="tagIcon" src="assets/svg/tag.svg" />
+        <div class="tagText">
+            ${tagText}
+        </div>
+    </div>
+    `;
 }
 
 function start()
 {
-    addMonetizationCard("Paid");
-    addMonetizationCard("Paid DLC");
-    addMonetizationCard("Microtransactions");
-    addMonetizationCard("Advertisements");
-    addMonetizationCard("Season Pass");
-    addMonetizationCard("Premium Battle Pass");
-    addMonetizationCard("Premium Currency");
-    addMonetizationCard("Premium Loot Boxes");
-    addMonetizationCard("Premium Cosmetics");
-    addMonetizationCard("Deluxe Edition");
-    addMonetizationCard("Pre-order Bonus");
-    addMonetizationCard("Subscription");
-    addMonetizationCard("Pay to Win");
-    addMonetizationCard("Timed Store");
-    addMonetizationCard("NFTs");
-    addMonetizationCard("Player Market");
-
-    var cards = document.querySelectorAll('.monetizationCard');
+    // var cards = document.querySelectorAll('.monetizationCard');
 
     // for (let i = 0; i < cards.length; i+=3)
     // {
     //     var tagsContainer = cards[i].querySelector('.tags');
     //     if (tagsContainer)
     //     {
-    //         tagsContainer.innerHTML += '<div class="tag"><img class="tagIcon" src="assets/svg/tag.svg" /><div class="tagText">cosmetic only</div></div>';    
+    //         addTagToCard(tagsContainer, "test");
     //     }
     // }
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const gameID = urlParams.get('id');
-
-    const checkmarkCollection = document.getElementsByClassName("checkmark");
+    const gameID = urlParams.get('id').toLowerCase();
 
     fetch('./data/game_database.json', {
         headers: {
@@ -52,6 +80,7 @@ function start()
     .then((allGameData) => {        
         
         let gameData = allGameData.find(x => x.gameID === gameID);
+        console.log(gameData);
         document.getElementById("gameTitle").textContent = gameData.title;
         document.getElementById("gameBoxart").src = gameData.boxart;
         
@@ -60,24 +89,44 @@ function start()
                 'Cache-Control': 'no-cache'
             }
         }).then(result => result.json())
-        .then((monetizationData) => {
+        .then((cardData) => {
+            checkmarkCollection = document.getElementsByClassName("checkmark");
 
-            if (monetizationData.Paid >= 1) activateCheckmark(checkmarkCollection[0]);
-            if (monetizationData.PaidDLC >= 1) activateCheckmark(checkmarkCollection[1]);
-            if (monetizationData.Microtransactions >= 1) activateCheckmark(checkmarkCollection[2]);
-            if (monetizationData.Advertisements >= 1) activateCheckmark(checkmarkCollection[3]);
-            if (monetizationData.SeasonPass >= 1) activateCheckmark(checkmarkCollection[4]);
-            if (monetizationData.PremiumBattlePass >= 1) activateCheckmark(checkmarkCollection[5]);
-            if (monetizationData.PremiumCurrency >= 1) activateCheckmark(checkmarkCollection[6]);
-            if (monetizationData.PremiumLootBoxes >= 1) activateCheckmark(checkmarkCollection[7]);
-            if (monetizationData.PremiumCosmetics >= 1) activateCheckmark(checkmarkCollection[8]);
-            if (monetizationData.DeluxeEdition >= 1) activateCheckmark(checkmarkCollection[9]);
-            if (monetizationData.PreorderBonus >= 1) activateCheckmark(checkmarkCollection[10]);
-            if (monetizationData.Subscription >= 1) activateCheckmark(checkmarkCollection[11]);
-            if (monetizationData.PayToWin >= 1) activateCheckmark(checkmarkCollection[12]);
-            if (monetizationData.FOMOMechanics >= 1) activateCheckmark(checkmarkCollection[13]);
-            if (monetizationData.NFTs >= 1) activateCheckmark(checkmarkCollection[14]);
-            if (monetizationData.PlayerMarket >= 1) activateCheckmark(checkmarkCollection[15]);
+            
+            //addMonetizationCard("Paid", cardData.Paid, ["Digital", "Physical"]);
+            addMonetizationCard(cardData.Paid);
+            addMonetizationCard(cardData.PaidDLC);
+            addMonetizationCard(cardData.DeluxeEdition);
+            addMonetizationCard(cardData.PreorderBonus);
+            //addMonetizationCard("Microtransactions", cardData.Microtransactions);
+            addMonetizationCard(cardData.SeasonPass);
+            addMonetizationCard(cardData.TimedStore);
+            addMonetizationCard(cardData.PremiumBattlePass);
+            addMonetizationCard(cardData.PremiumCurrency);
+            addMonetizationCard(cardData.PremiumLootBoxes);
+            addMonetizationCard(cardData.PremiumCosmetics);
+            addMonetizationCard(cardData.Advertisements);
+            //addMonetizationCard("Pay to Win", cardData.PayToWin);
+            addMonetizationCard(cardData.Subscription);
+            addMonetizationCard(cardData.NFTs);
+            addMonetizationCard(cardData.PlayerMarket);
+
+            // if (monetizationData.Paid >= 1) activateCheckmark(checkmarkCollection[0]);
+            // if (monetizationData.PaidDLC >= 1) activateCheckmark(checkmarkCollection[1]);
+            // if (monetizationData.Microtransactions >= 1) activateCheckmark(checkmarkCollection[2]);
+            // if (monetizationData.Advertisements >= 1) activateCheckmark(checkmarkCollection[3]);
+            // if (monetizationData.SeasonPass >= 1) activateCheckmark(checkmarkCollection[4]);
+            // if (monetizationData.PremiumBattlePass >= 1) activateCheckmark(checkmarkCollection[5]);
+            // if (monetizationData.PremiumCurrency >= 1) activateCheckmark(checkmarkCollection[6]);
+            // if (monetizationData.PremiumLootBoxes >= 1) activateCheckmark(checkmarkCollection[7]);
+            // if (monetizationData.PremiumCosmetics >= 1) activateCheckmark(checkmarkCollection[8]);
+            // if (monetizationData.DeluxeEdition >= 1) activateCheckmark(checkmarkCollection[9]);
+            // if (monetizationData.PreorderBonus >= 1) activateCheckmark(checkmarkCollection[10]);
+            // if (monetizationData.Subscription >= 1) activateCheckmark(checkmarkCollection[11]);
+            // if (monetizationData.PayToWin >= 1) activateCheckmark(checkmarkCollection[12]);
+            // if (monetizationData.FOMOMechanics >= 1) activateCheckmark(checkmarkCollection[13]);
+            // if (monetizationData.NFTs >= 1) activateCheckmark(checkmarkCollection[14]);
+            // if (monetizationData.PlayerMarket >= 1) activateCheckmark(checkmarkCollection[15]);
 
         }).catch(err => console.error(err));
     }).catch(err => console.error(err));

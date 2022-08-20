@@ -1,75 +1,69 @@
 {
   "Paid": {
-    "name": "Paid",
-    "value": false,
+    "value": true,
     "tags": [
-      "Digitial"
+      "tst"
     ]
   },
   "PaidDLC": {
-    "name": "Paid DLC",
+    "value": false,
+    "tags": []
+  },
+  "Microtransactions": {
     "value": false,
     "tags": []
   },
   "Advertisements": {
-    "name": "Advertisements",
     "value": false,
     "tags": []
   },
   "SeasonPass": {
-    "name": "Season Pass",
+    "value": false,
+    "tags": [
+      "gdtf"
+    ]
+  },
+  "PremiumBattlePass": {
     "value": false,
     "tags": []
   },
-  "PremiumBattlePass": {
-    "name": "Premium Battle Pass",
-    "value": true,
-    "tags": []
-  },
   "PremiumCurrency": {
-    "name": "Premium Currency",
-    "value": true,
+    "value": false,
     "tags": []
   },
   "PremiumLootBoxes": {
-    "name": "Premium Loot Boxes",
     "value": false,
     "tags": []
   },
   "PremiumCosmetics": {
-    "name": "Premium Cosmetics",
-    "value": true,
-    "tags": [
-      "Exclusive"
-    ]
+    "value": false,
+    "tags": []
   },
   "DeluxeEdition": {
-    "name": "Deluxe Edition",
-    "value": true,
+    "value": false,
     "tags": []
   },
   "PreorderBonus": {
-    "name": "Pre-order Bonus",
     "value": false,
     "tags": []
   },
   "Subscription": {
-    "name": "Subscriptions",
     "value": false,
     "tags": []
   },
-  "TimedStore": {
-    "name": "Timed Store",
+  "PayToWin": {
+    "value": false,
+    "tags": []
+  },
+  "TimedShops": {
     "value": false,
     "tags": []
   },
   "NFTs": {
-    "name": "NFTs",
     "value": false,
     "tags": []
   },
   "PlayerMarket": {
-    "name": "Player Market",
     "value": false,
     "tags": []
   }

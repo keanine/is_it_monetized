@@ -3,7 +3,7 @@
     "name": "Paid",
     "value": false,
     "tags": [
-      "Digitial"
+      "Digital"
     ]
   },
   "PaidDLC": {
@@ -33,19 +33,17 @@
   },
   "PremiumLootBoxes": {
     "name": "Premium Loot Boxes",
-    "value": false,
+    "value": true,
     "tags": []
   },
   "PremiumCosmetics": {
     "name": "Premium Cosmetics",
     "value": true,
-    "tags": [
-      "Exclusive"
-    ]
+    "tags": []
   },
   "DeluxeEdition": {
     "name": "Deluxe Edition",
-    "value": true,
+    "value": false,
     "tags": []
   },
   "PreorderBonus": {
@@ -60,7 +58,7 @@
   },
   "TimedStore": {
     "name": "Timed Store",
-    "value": false,
+    "value": true,
     "tags": []
   },
   "NFTs": {

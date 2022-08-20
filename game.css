@@ -56,45 +56,63 @@
   margin: 4px;
   padding: 10px;
   /* height: 60px; */
+  height: 32px;
 }
 
 .cardText
 {
   float: left;
   width: 80%;
+  
+  position: absolute;
+  line-height: 0px;
+  margin-top: 7px;
+  margin-left: 0px;
+}
+
+.cardTextCentered
+{
+  margin-top: 17px;
 }
 
 .tags
 {
-  float: left;
-  margin-top: 4px;
+  /* margin-top: 4px; */
+  position: absolute;
+  margin-top: 19px;
+  margin-left: -5px;
 }
 
 .tag
 {
   background-color: #2a3b53;
-  height: 12px;
+  height: 10px;
   /* width: auto; */
   float: left;
-  padding: 8px;
+  padding: 4px;
   border-radius: 4px;
-  margin-top: 4px;
   margin-right: 4px;
+
+  padding: 4px 6px;
+
+  /* position: absolute;
+  margin-top: 12px;
+  margin-right: 4px; */
 }
 
 .tagText
 {
   float: left;
-  font-size: 14px;
-  line-height: 10px;
+  font-size: 12px;
+  line-height: 9px;
 }
 
 .tagIcon
 {
-  width: 12px;
+  width: 10px;
   float: left;
   margin-top: 0px;
-  margin-right: 5px;
+  margin-right: 4px;
 }
 
 .checkmark
@@ -103,6 +121,8 @@
   width: 30px;
   height: 30px;
   color: #c7c7c7;
+  margin-top: 1px;
+  margin-right: -4px;
 }
 
 .checkmarkActive
