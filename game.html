@@ -19,7 +19,11 @@
 		<div id="header">
 			<a href="/">Is it Monetized</a>
 			<a href="https://ko-fi.com/keanine" target="_blank"><img class="headerButton" src="assets/svg/kofi_icon.svg" alt="Ko-fi"></img></a>
-		</div>
+            <!-- <div id="searchBar">
+				<input type="text" id="searchInput" title="search" placeholder="Search..." name="search">
+				<img draggable="false" onclick="searchUsingInputBar()" id="searchButton" class="headerButton searchButton" src="assets/svg/search.svg" alt="Search"></img>
+			</div> -->
+        </div>
 		
 		<svg style="display: none;" width="10px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path id="svgCheckmarkCross" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" fill="currentColor" /></svg>
 		<svg style="display: none;" width="10px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path id="svgCheckmarkTick" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="currentColor" /></svg>
@@ -30,40 +34,6 @@
 
 
             <div id="monetizationCardContainer">
-                    <div class="monetizationCard"><div class="cardText">Paid</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Paid DLC</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Microtransactions</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Advertisements</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Season Pass</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Premium Battle Pass</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Premium Currency</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Premium Loot Boxes</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Premium Cosmetics</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Deluxe Edition</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Pre-order Bonus</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Subscription</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Pay to Win</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Timed Store</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">NFTs</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                    <div class="monetizationCard"><div class="cardText">Player Market</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
-                
-
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/paid.svg" />Paid<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/dlc.svg" />Paid DLC<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/microtransactions.svg" />Microtransactions<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/advertisements.svg" />Advertisements<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/season-pass.svg" />Season Pass<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/battle-pass.svg" />Premium Battle Pass<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/currency.svg" />Premium Currency<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/loot-boxes.svg" />Premium Loot Boxes<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/cosmetics.svg" />Premium Cosmetics<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/deluxe-edition.svg" />Deluxe Edition<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/preorder-bonus.svg" />Pre-order Bonus<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/subscription.svg" />Subscription<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/paytowin.svg" />Pay to Win<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/timed-store.svg" />Timed Store<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/nft.svg" />NFTs<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
-                <!-- <div class="monetizationCard"><img width="30" src="assets/svg/monetization/player-market.svg" />Player Market<svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg></div> -->
             </div>
             
         </div>

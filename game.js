@@ -1,6 +1,32 @@
+function addMonetizationCard(text)
+{
+    let container = document.getElementById("monetizationCardContainer");
+    let monetizationCardElement = `                    
+    <div class="monetizationCard"><div class="cardText">${text}</div><svg class="checkmark" viewBox="0 0 24 24"><use href="#svgCheckmarkCross" /><use href="#svgCheckmarkTick" style="display: none;" /></svg><div class="tags"></div></div>
+    `
+
+    container.innerHTML += monetizationCardElement;
+}
 
 function start()
 {
+    addMonetizationCard("Paid");
+    addMonetizationCard("Paid DLC");
+    addMonetizationCard("Microtransactions");
+    addMonetizationCard("Advertisements");
+    addMonetizationCard("Season Pass");
+    addMonetizationCard("Premium Battle Pass");
+    addMonetizationCard("Premium Currency");
+    addMonetizationCard("Premium Loot Boxes");
+    addMonetizationCard("Premium Cosmetics");
+    addMonetizationCard("Deluxe Edition");
+    addMonetizationCard("Pre-order Bonus");
+    addMonetizationCard("Subscription");
+    addMonetizationCard("Pay to Win");
+    addMonetizationCard("Timed Store");
+    addMonetizationCard("NFTs");
+    addMonetizationCard("Player Market");
+
     var cards = document.querySelectorAll('.monetizationCard');
 
     // for (let i = 0; i < cards.length; i+=3)
@@ -16,7 +42,7 @@ function start()
     const urlParams = new URLSearchParams(queryString);
     const gameID = urlParams.get('id');
 
-     const checkmarkCollection = document.getElementsByClassName("checkmark");
+    const checkmarkCollection = document.getElementsByClassName("checkmark");
 
     fetch('./data/game_database.json', {
         headers: {
