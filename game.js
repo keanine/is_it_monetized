@@ -5,7 +5,7 @@ function addMonetizationCard(data)
     let text = data.name;
 
     let container = document.getElementById("monetizationCardContainer");
-    var allCards = document.querySelectorAll('.monetizationCard');
+    let cardCount = document.querySelectorAll('.monetizationCard').length;
 
     let verticalAlignText = "";
     if (data.tags.length == 0)
@@ -18,25 +18,24 @@ function addMonetizationCard(data)
         <div class="cardText ${verticalAlignText}">
             ${text}
         </div>
-        <svg class="checkmark checkmark${allCards.length}" viewBox="0 0 24 24">
+        <svg class="checkmark checkmark${cardCount}" viewBox="0 0 24 24">
             <use href="#svgCheckmarkCross" />
             <use href="#svgCheckmarkTick" style="display: none;" />
         </svg>
-        <div class="tags" id="card${allCards.length}tags">
+        <div class="tags" id="card${cardCount}tags">
         </div>
     </div>
     `;
 
     container.innerHTML += monetizationCardElement;
-    var tagsContainer = container.querySelector(`#card${allCards.length}tags`);
+    var tagsContainer = container.querySelector(`#card${cardCount}tags`);
     //container.appendChild(monetizationCardElement);
     for (let i = 0; i < data.tags.length; i++)
     {
         addTagToCard(tagsContainer, data.tags[i]);
     }
 
-    var checkmark = container.querySelector(`.checkmark${allCards.length}`);
-    console.log(container);
+    var checkmark = container.querySelector(`.checkmark${cardCount}`);
     if (data.value == true) 
     {
         activateCheckmark(checkmark);
@@ -80,7 +79,6 @@ function start()
     .then((allGameData) => {        
         
         let gameData = allGameData.find(x => x.gameID === gameID);
-        console.log(gameData);
         document.getElementById("gameTitle").textContent = gameData.title;
         document.getElementById("gameBoxart").src = gameData.boxart;
         

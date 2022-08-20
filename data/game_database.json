@@ -77,14 +77,14 @@
     "saleType": "Free to Play"
   },
   {
-    "gameID": "f1_2022",
+    "gameID": "a",
     "title": "F1 22",
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/fba05666aec048c550089d9bc5ac8f53.png",
     "rating": "Medium",
     "saleType": "Paid"
   },
   {
-    "gameID": "f1_2021",
+    "gameID": "b",
     "title": "F1 2021",
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/a577c4583cd6abda9034068c1bae81cc.png",
     "rating": "Medium",
@@ -103,5 +103,12 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/263253aaa403d4555a972b520d9f03eb.png",
     "rating": "Light",
     "saleType": "Paid"
+  },
+  {
+    "gameID": "finalfantasy14",
+    "title": "Final Fantasy XIV",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/e3354b083f03a9ceb5e01813104be277.png",
+    "rating": "Heavy",
+    "saleType": "Paid + Subscription"
   }
 ]
