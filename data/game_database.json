@@ -77,14 +77,14 @@
     "saleType": "Free to Play"
   },
   {
-    "gameID": "a",
+    "gameID": "f1_2022",
     "title": "F1 22",
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/fba05666aec048c550089d9bc5ac8f53.png",
     "rating": "Medium",
     "saleType": "Paid"
   },
   {
-    "gameID": "b",
+    "gameID": "f1_2021",
     "title": "F1 2021",
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/a577c4583cd6abda9034068c1bae81cc.png",
     "rating": "Medium",
