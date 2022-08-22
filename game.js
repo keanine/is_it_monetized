@@ -14,7 +14,7 @@ function addMonetizationCard(data)
     }
 
     let monetizationCardElement = `
-    <div class="monetizationCard">
+    <div class="monetizationCard noselect">
         <div class="cardText ${verticalAlignText}">
             ${text}
         </div>
