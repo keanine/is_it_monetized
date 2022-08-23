@@ -308,9 +308,9 @@ function createPaginationBar()
 function delaySearchbarAnimation()
 {
     const elem = document.getElementById("searchInput");
-    let searchBarOffset = elem.offsetWidth;
-    let padding = 10;
+    let padding = 12;
     let border = 2;
+    let searchBarOffset = elem.offsetWidth - (padding*2);
 
     elem.style.width = 0 + 'px';
     elem.style.paddingLeft = 0;
