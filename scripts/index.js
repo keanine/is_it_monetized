@@ -20,19 +20,25 @@ function start()
     setupPage();
     recoverGameIndexFromURL();
 
-    fetch('./data/game_database.json', {
-        headers: {
+    fetch('./data/game_database.json', 
+    {
+        headers: 
+        {
             'Cache-Control': 'no-cache'
         }
-    }).then(result => result.json())
-    .then((output) => {
+    })
+    .then(result => result.json())
+    .then((output) => 
+    {
         database = output;
         sortList(true);
         filteredDatabase = database;
         
         recoverSearchFromURL();
         loadPage();
-    }).catch(err => console.error(err));
+    }
+    )
+    .catch(err => console.error(err));
 }
 
 function goto(page, arg)
