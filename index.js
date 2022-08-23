@@ -13,6 +13,8 @@ let usingSearchArg = false;
 
 function start()
 {
+    delaySearchbarAnimation();
+
     reviewListElement = document.getElementById("reviewList");
 
     setupPage();
@@ -300,5 +302,63 @@ function createPaginationBar()
 
         if (pageButtonCount >= maxPageButtonCount)
             break;
+    }
+}
+
+function delaySearchbarAnimation()
+{
+    const elem = document.getElementById("searchInput");
+    let searchBarOffset = elem.offsetWidth;
+    let padding = 10;
+    let border = 2;
+
+    elem.style.width = 0 + 'px';
+    elem.style.paddingLeft = 0;
+    elem.style.paddingRight = 0;
+    elem.style.borderLeft = 0;
+    elem.style.borderRight = 0;
+    
+    const button = document.getElementById("searchButton");
+    button.style.borderTopLeftRadius = "5px";
+    button.style.borderBottomRadius = "5px";
+
+    setTimeout(function() {
+        button.style.borderTopLeftRadius = "0px";
+        button.style.borderBottomRadius = "0px";
+        animationSearchbar(searchBarOffset, padding, border);
+    }, 200);
+}
+
+function animationSearchbar(targetWidth, targetPadding, targetBorder) {
+    let id = null;
+    const elem = document.getElementById("searchInput");
+    let width = 0;
+    let padding = 0;
+    let border = 0;
+
+    clearInterval(id);
+    id = setInterval(frame, 5);
+    function frame() {
+      if (width >= targetWidth) {
+        elem.style.width = targetWidth + 'px';
+        clearInterval(id);
+      } else {
+        width += 6;
+        elem.style.width = width + 'px';
+
+        if (padding < targetPadding)
+        {
+            padding++;
+            elem.style.paddingLeft = padding + "px";
+            elem.style.paddingRight = padding + "px";
+        }
+
+        if (border < targetBorder)
+        {
+            border++;
+            elem.style.borderLeft = border + "px";
+            elem.style.borderRight = border + "px";
+        }
+      }
     }
 }
