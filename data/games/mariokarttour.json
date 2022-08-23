@@ -1,17 +1,14 @@
 {
   "Paid": {
     "name": "Paid",
-    "value": true,
-    "tags": [
-      "Digital",
-      "Physical"
-    ]
+    "value": false,
+    "tags": []
   },
   "PaidDLC": {
     "name": "Paid DLC",
-    "value": true,
+    "value": false,
     "tags": [
-      "Story"
+      "Microtransactions"
     ]
   },
   "DeluxeEdition": {
@@ -26,28 +23,39 @@
   },
   "GameplayMTX": {
     "name": "Gameplay MTX",
-    "value": false,
-    "tags": []
+    "value": true,
+    "tags": [
+      "Timed Bundles"
+    ]
   },
   "TimedStore": {
     "name": "Timed Store",
-    "value": false,
-    "tags": []
+    "value": true,
+    "tags": [
+      "Bi-Weekly",
+      "Lootboxes"
+    ]
   },
   "PremiumBattlePass": {
     "name": "Premium Battle Pass",
-    "value": false,
-    "tags": []
+    "value": true,
+    "tags": [
+      "Gameplay"
+    ]
   },
   "PremiumCurrency": {
     "name": "Premium Currency",
-    "value": false,
-    "tags": []
+    "value": true,
+    "tags": [
+      "Log-in Bonuses"
+    ]
   },
   "PremiumLootBoxes": {
     "name": "Premium Loot Boxes",
-    "value": false,
-    "tags": []
+    "value": true,
+    "tags": [
+      "Gameplay"
+    ]
   },
   "PremiumCosmetics": {
     "name": "Premium Cosmetics",
@@ -61,8 +69,11 @@
   },
   "Subscription": {
     "name": "Subscriptions",
-    "value": false,
-    "tags": []
+    "value": true,
+    "tags": [
+      "200cc",
+      "Gameplay"
+    ]
   },
   "NFTs": {
     "name": "NFTs",

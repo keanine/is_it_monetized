@@ -1,18 +1,13 @@
 {
   "Paid": {
     "name": "Paid",
-    "value": true,
-    "tags": [
-      "Digital",
-      "Physical"
-    ]
+    "value": false,
+    "tags": []
   },
   "PaidDLC": {
     "name": "Paid DLC",
-    "value": true,
-    "tags": [
-      "Story"
-    ]
+    "value": false,
+    "tags": []
   },
   "DeluxeEdition": {
     "name": "Deluxe Edition",
@@ -31,17 +26,17 @@
   },
   "TimedStore": {
     "name": "Timed Store",
-    "value": false,
+    "value": true,
     "tags": []
   },
   "PremiumBattlePass": {
     "name": "Premium Battle Pass",
-    "value": false,
+    "value": true,
     "tags": []
   },
   "PremiumCurrency": {
     "name": "Premium Currency",
-    "value": false,
+    "value": true,
     "tags": []
   },
   "PremiumLootBoxes": {
@@ -51,7 +46,7 @@
   },
   "PremiumCosmetics": {
     "name": "Premium Cosmetics",
-    "value": false,
+    "value": true,
     "tags": []
   },
   "Advertisements": {

@@ -110,5 +110,26 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/e3354b083f03a9ceb5e01813104be277.png",
     "rating": "Heavy",
     "saleType": "Paid + Subscription"
+  },
+  {
+    "gameID": "supermariorun",
+    "title": "Super Mario Run",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/5ccf83f735dac5a7b5bf540d18af2bf5.png",
+    "rating": "None",
+    "saleType": "Freemium"
+  },
+  {
+    "gameID": "mariokarttour",
+    "title": "Mario Kart Tour",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/43ed0ac68df1a351eaf025206a42b9b2.png",
+    "rating": "Heavy",
+    "saleType": "Free to Play"
+  },
+  {
+    "gameID": "splitgate",
+    "title": "Splitgate",
+    "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/86f18d065dd8f77a0b175170b91f1223.jpg",
+    "rating": "Medium",
+    "saleType": "Free to Play"
   }
 ]

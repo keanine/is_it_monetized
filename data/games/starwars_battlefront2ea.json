@@ -12,13 +12,25 @@
     "value": false,
     "tags": []
   },
-  "Advertisements": {
-    "name": "Advertisements",
+  "DeluxeEdition": {
+    "name": "Deluxe Edition",
+    "value": true,
+    "tags": [
+      "All DLC"
+    ]
+  },
+  "PreorderBonus": {
+    "name": "Pre-order Bonus",
+    "value": true,
+    "tags": []
+  },
+  "GameplayMTX": {
+    "name": "Gameplay MTX",
     "value": false,
     "tags": []
   },
-  "SeasonPass": {
-    "name": "Season Pass",
+  "TimedStore": {
+    "name": "Timed Store",
     "value": false,
     "tags": []
   },
@@ -42,25 +54,13 @@
     "value": true,
     "tags": []
   },
-  "DeluxeEdition": {
-    "name": "Deluxe Edition",
-    "value": true,
-    "tags": [
-      "All DLC"
-    ]
-  },
-  "PreorderBonus": {
-    "name": "Pre-order Bonus",
-    "value": true,
+  "Advertisements": {
+    "name": "Advertisements",
+    "value": false,
     "tags": []
   },
   "Subscription": {
     "name": "Subscriptions",
-    "value": false,
-    "tags": []
-  },
-  "TimedStore": {
-    "name": "Timed Store",
     "value": false,
     "tags": []
   },

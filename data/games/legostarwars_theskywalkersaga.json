@@ -14,14 +14,28 @@
       "Character Packs"
     ]
   },
-  "Advertisements": {
-    "name": "Advertisements",
+  "DeluxeEdition": {
+    "name": "Deluxe Edition",
+    "value": true,
+    "tags": [
+      "Season Pass"
+    ]
+  },
+  "PreorderBonus": {
+    "name": "Pre-order Bonus",
+    "value": true,
+    "tags": [
+      "Exclusive Character"
+    ]
+  },
+  "GameplayMTX": {
+    "name": "Gameplay MTX",
     "value": false,
     "tags": []
   },
-  "SeasonPass": {
-    "name": "Season Pass",
-    "value": true,
+  "TimedStore": {
+    "name": "Timed Store",
+    "value": false,
     "tags": []
   },
   "PremiumBattlePass": {
@@ -44,27 +58,13 @@
     "value": false,
     "tags": []
   },
-  "DeluxeEdition": {
-    "name": "Deluxe Edition",
-    "value": true,
-    "tags": [
-      "Season Pass"
-    ]
-  },
-  "PreorderBonus": {
-    "name": "Pre-order Bonus",
-    "value": true,
-    "tags": [
-      "Exclusive Character"
-    ]
-  },
-  "Subscription": {
-    "name": "Subscriptions",
+  "Advertisements": {
+    "name": "Advertisements",
     "value": false,
     "tags": []
   },
-  "TimedStore": {
-    "name": "Timed Store",
+  "Subscription": {
+    "name": "Subscriptions",
     "value": false,
     "tags": []
   },

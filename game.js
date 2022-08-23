@@ -97,7 +97,8 @@ function start()
             addMonetizationCard(cardData.DeluxeEdition);
             addMonetizationCard(cardData.PreorderBonus);
             //addMonetizationCard("Microtransactions", cardData.Microtransactions);
-            addMonetizationCard(cardData.SeasonPass);
+            //addMonetizationCard(cardData.SeasonPass);
+            addMonetizationCard(cardData.GameplayMTX);
             addMonetizationCard(cardData.TimedStore);
             addMonetizationCard(cardData.PremiumBattlePass);
             addMonetizationCard(cardData.PremiumCurrency);
