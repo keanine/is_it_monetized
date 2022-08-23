@@ -219,3 +219,74 @@
   color: #FF9900;
   /* font-weight: bold; */
 }
+
+#sortByBar
+{
+  /* background-color: #2a3b53; */
+
+  max-width: 840px;
+  margin: auto;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  
+  height: 30px;
+}
+
+#sortByContainer
+{
+  background-color: #1f2c40;
+  width: 180px;
+  padding-left: 10px;
+  margin-left: 13px;
+  border-radius: 5px;
+
+  height: 35px;
+  line-height: 35px;
+}
+
+#sortByDropdown
+{
+  font-family: 'Quicksand', sans-serif;
+  background-color: #3f536e;
+  color: #9eaabb;
+  border: 0;
+
+  margin-top: -4px;
+  margin-left: 2px;
+  border-radius: 5px;
+  padding-left: 4px;
+  padding-right: 4px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.sortByOption
+{
+  border: 0;
+}
+
+/* .sortByOption
+{
+  background-color: red;
+}
+
+.sortByOption:checked
+{
+  background-color: blue;
+}
+
+.sortByOption:hover {
+  background: yellow;
+}
+
+.sortByOption:focus {
+  background-color: purple;
+}
+
+.sortByOption:active {
+  background-color: green;
+}
+
+select.sortByDropdown option:hover {
+  box-shadow: 0 0 10px 100px #1882A8 inset;
+} */

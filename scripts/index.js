@@ -27,6 +27,7 @@ function start()
     }).then(result => result.json())
     .then((output) => {
         database = output;
+        sortList(true);
         filteredDatabase = database;
         
         recoverSearchFromURL();
@@ -51,9 +52,63 @@ function setupPage()
     });
 }
 
-function sortResultsInDatabase()
+function sortList(init)
 {
-    //Sort by date
+    let sortParam = getParamFromURL("sortby");
+    
+    if (sortParam && init)
+    {
+        document.getElementById("sortByDropdown").value = sortParam;
+
+        if (sortParam == "releaseDate") {
+            if (init == false)
+                setParamInURL("sortby", "releaseDate");
+    
+            sortDatabaseByReleaseDate();
+        }
+        else if (sortParam == "alphabetical") {
+            if (init == false)
+                setParamInURL("sortby", "alphabetical");
+    
+            sortDatabaseByAlphabetical();
+        }
+    }
+    else
+    {
+        let value = document.getElementById("sortByDropdown").value;
+
+        if (value == "releaseDate") {
+            if (init == false)
+                setParamInURL("sortby", "releaseDate");
+    
+            sortDatabaseByReleaseDate();
+        }
+        else if (value == "alphabetical") {
+            if (init == false)
+                setParamInURL("sortby", "alphabetical");
+    
+            sortDatabaseByAlphabetical();
+        }
+    }
+    filteredDatabase = database;
+    loadPage();
+    firstPage();
+}
+
+function sortDatabaseByAlphabetical()
+{
+    database.sort((a, b) => a.title.localeCompare(b.title))
+}
+
+function sortDatabaseByReleaseDate()
+{
+    database.sort(function(a, b) {
+        var keyA = new Date(a.releaseDate),
+          keyB = new Date(b.releaseDate);
+        if (keyA > keyB) return -1;
+        if (keyA < keyB) return 1;
+        return 0;
+      });
 }
 
 function nextPage()
@@ -63,7 +118,7 @@ function nextPage()
         usingPageArg = true;
         gameDataIndex += gamesPerPage;
         currentPage += 1;
-        updateURL();
+        setParamInURL("page", currentPage);
         loadPage();
     }
 }
@@ -75,7 +130,7 @@ function prevPage()
         usingPageArg = true;
         gameDataIndex -= gamesPerPage;
         currentPage -= 1;
-        updateURL();
+        setParamInURL("page", currentPage);
         loadPage();
     }
 }
@@ -85,7 +140,7 @@ function firstPage()
     usingPageArg = true;
     gameDataIndex = 0;
     currentPage = 1;
-    updateURL();
+    setParamInURL("page", currentPage);
     loadPage();
 }
 
@@ -97,7 +152,7 @@ function lastPage()
 
     gameDataIndex = (maxPages - 1) * gamesPerPage;
     currentPage = maxPages;
-    updateURL();
+    setParamInURL("page", currentPage);
     loadPage();
 }
 
@@ -109,7 +164,7 @@ function goToPage(targetPage)
     {
         currentPage = targetPage;
         gameDataIndex = targetIndex;
-        updateURL();
+        setParamInURL("page", currentPage);
         loadPage();
     }
 }
@@ -147,45 +202,45 @@ function loadPage()
     createPaginationBar();
 }
 
-function updateURL()
-{        
-    var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname;    
-    
-    if (usingPageArg)
-    {
-        refresh += generateParam("page", currentPage);
-    }
-    if (usingSearchArg && searchTerm != null && searchTerm != "")
-    {
-        refresh += generateParam("search", searchTerm);
-    }
-    
-    window.history.pushState({ path: refresh }, '', refresh);
-    // document.getElementById("title").innerText = "Is it Monetized (Page " + currentPage + ")";
-    
-    firstParam = true;
+function getParamFromURL(paramName)
+{
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const param = urlParams.get(paramName);
+    return param;
 }
 
-let firstParam = true;
-function generateParam(paramName, paramContent)
+function setParamInURL(paramName, paramContent)
 {
-    if (firstParam)
+    const queryURL = window.location.search;
+    const urlParams = new URLSearchParams(queryURL);
+    const existingParam = urlParams.get(paramName);
+    
+    var refresh = queryURL;
+
+    if (existingParam == null)
     {
-        firstParam = false;
-        return '?' + paramName + '=' + paramContent;
+        let firstParam = queryURL.indexOf('?') == -1;
+        if (firstParam)
+        {
+            refresh += '?' + paramName + '=' + paramContent;
+        }
+        else
+        {
+            refresh += '&' + paramName + '=' + paramContent;
+        }
     }
     else
     {
-        return '&' + paramName + '=' + paramContent;
+        refresh = refresh.replace(existingParam, paramContent);
     }
 
+    window.history.pushState({ path: refresh }, '', refresh);
 }
 
 function recoverGameIndexFromURL()
 {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const param = Number(urlParams.get('page'));
+    const param = getParamFromURL("page");
 
     if (param == null || param == 0)
     {
@@ -201,10 +256,7 @@ function recoverGameIndexFromURL()
 
 function recoverSearchFromURL()
 {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const param = urlParams.get('search');
-
+    const param = getParamFromURL("search");
     if (param != null)
     {
         searchTerm = param.toLowerCase();
@@ -225,9 +277,7 @@ function search(resetPage)
 
     for (let i = 0; i < database.length; i++)
     {
-        //console.log(database[i].title + " | " + searchTerm);
         let databaseTitle = database[i].title.replace(/^"(.+)"$/,'$1').toLowerCase();
-        //console.log(databaseTitle + " | " + searchTerm);
         if (databaseTitle.includes(searchTerm))
         {
             searchResults.push(database[i]);

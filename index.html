@@ -20,6 +20,16 @@
 				<img draggable="false" onclick="searchUsingInputBar()" id="searchButton" class="headerButton searchButton" src="assets/svg/search.svg" alt="Search"></img>
 			</div>
 		</div>
+
+		<div id="sortByBar">
+			<div id="sortByContainer">
+				Sort by
+				<select name="sortBy" id="sortByDropdown" onchange="sortList(false)">
+					<option class="sortByOption" value="releaseDate">Release Date</option>
+					<option class="sortByOption" value="alphabetical">A - Z</option>
+			  	</select>
+			</div>
+		</div>
 		
 		<div id="reviewList" class="noselect">
 			<div class="reviewCardPlaceholder">
