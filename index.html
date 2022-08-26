@@ -11,21 +11,21 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 	</head>
-	<body onload="start()">
+	<body onload="onLoad()">
 		<div id="header">
 			<div id="title"><a href="/">Is it Monetized</a></div>
 			<a draggable="false" href="https://ko-fi.com/keanine" target="_blank"><img draggable="false" class="headerButton" src="assets/svg/kofi_icon.svg" alt="Ko-fi"></img></a>
 			<div id="searchBar">
 				<input type="text" id="searchInput" title="search" placeholder="Search..." name="search">
-				<img draggable="false" onclick="searchUsingInputBar()" id="searchButton" class="headerButton searchButton" src="assets/svg/search.svg" alt="Search"></img>
+				<img draggable="false" onclick="searchEvent()" id="searchButton" class="headerButton searchButton" src="assets/svg/search.svg" alt="Search"></img>
 			</div>
 		</div>
 
 		<div id="sortByBar">
 			<div id="sortByContainer">
 				Sort by
-				<select name="sortBy" id="sortByDropdown" onchange="sortList(false)">
-					<option class="sortByOption" value="releaseDate">Release Date</option>
+				<select name="sortBy" id="sortByDropdown" onchange="sortDatabaseEvent()">
+					<option class="sortByOption" value="release_date">Release Date</option>
 					<option class="sortByOption" value="alphabetical">A - Z</option>
 			  	</select>
 			</div>
@@ -47,11 +47,11 @@
 		</div>
 
 		<div id="paginationBar" class="noselect">
-			<div class="paginationButton paginationPrev" onclick="firstPage()">&lt;=</div>
-			<div class="paginationButton paginationPrev" onclick="prevPage()">&lt;</div>
+			<div class="paginationButton paginationPrev" onclick="firstGamePage()">&lt;=</div>
+			<div class="paginationButton paginationPrev" onclick="prevGamePage()">&lt;</div>
 			<div id="paginationPages"></div>
-			<div class="paginationButton paginationNext" onclick="nextPage()">&gt;</div>
-			<div class="paginationButton paginationNext" onclick="lastPage()">=&gt;</div>
+			<div class="paginationButton paginationNext" onclick="nextGamePage()">&gt;</div>
+			<div class="paginationButton paginationNext" onclick="lastGamePage()">=&gt;</div>
 		</div>
 	</body>
 </html>

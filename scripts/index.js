@@ -1,25 +1,24 @@
-
-let reviewListElement;
-let gameDataIndex = 0;
-let currentPage = 1;
-const gamesPerPage = 6;
-let searchTerm;
-
-let database;
+let fullDatabase;
 let filteredDatabase;
 
-let usingPageArg = false;
-let usingSearchArg = false;
+let currentPage = 1; 
+let searchTerm = "";
+let sortByMethod = "release_date";
+let gamesPerPage = 6;
 
-function start()
+let gameIndex = 0;
+
+// Elements
+let reviewListElement;
+
+// Page Events
+
+function onLoad()
 {
-    delaySearchbarAnimation();
-
+    // initialize elements
     reviewListElement = document.getElementById("reviewList");
 
-    setupPage();
-    recoverGameIndexFromURL();
-
+    //load json
     fetch('./data/game_database.json', 
     {
         headers: 
@@ -28,28 +27,73 @@ function start()
         }
     })
     .then(result => result.json())
-    .then((output) => 
+    .then((loadedDatabase) => 
     {
-        database = output;
-        sortList(true);
-        filteredDatabase = database;
-        
-        recoverSearchFromURL();
-        loadPage();
+        initializeDatabase(loadedDatabase);
+        setupElements();
     }
     )
     .catch(err => console.error(err));
 }
 
-function goto(page, arg)
+function searchEvent() 
 {
-    window.location.href = page + '?id=' + arg;
+    const textbox = document.getElementById("searchInput");
+    searchTerm = textbox.value.toLowerCase();
+    search();
+    firstGamePage();
+    reloadGamePage();
 }
 
-function setupPage()
+function sortDatabaseEvent()
 {
-    var input = document.getElementById("searchInput");
+    sortByMethod = document.getElementById("sortByDropdown").value;
+    sortDatabase();
+    reloadGamePage();
+    firstGamePage();
+    console.log("Sorted");
+}
 
+// Main Functions
+
+function initializeDatabase(data)
+{
+    // initialize data variables
+    fullDatabase = data;
+    filteredDatabase = fullDatabase;
+
+    // load from URL params
+    currentPage = Number(tryGetParamFromURL("page", currentPage));
+    searchTerm = tryGetParamFromURL("search", searchTerm);
+    sortByMethod = tryGetParamFromURL("sortby", sortByMethod);
+    gamesPerPage = Number(tryGetParamFromURL("perpage", gamesPerPage));
+
+    //apply search
+    search();
+    firstGamePage();
+
+    //load page
+    reloadGamePage();
+}
+
+function updateGameIndex()
+{
+    if (currentPage == null || currentPage == 0)
+    {
+        currentPage = 1;
+        gameDataIndex = 0;
+    }
+    else
+    {
+        gameDataIndex = (currentPage - 1) * gamesPerPage;
+    }
+}
+
+function setupElements()
+{
+    document.getElementById("sortByDropdown").value = sortByMethod;
+
+    var input = document.getElementById("searchInput");
     input.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
             event.preventDefault();
@@ -58,57 +102,122 @@ function setupPage()
     });
 }
 
-function sortList(init)
-{
-    let sortParam = getParamFromURL("sortby");
-    
-    if (sortParam && init)
-    {
-        document.getElementById("sortByDropdown").value = sortParam;
+// General Helper Functions
 
-        if (sortParam == "releaseDate") {
-            if (init == false)
-                setParamInURL("sortby", "releaseDate");
+function goto(page, arg)
+{
+    window.location.href = page + '?id=' + arg;
+}
+
+function getParamFromURL(paramName)
+{
+    const allParamsString = window.location.search;
+    const urlParams = new URLSearchParams(allParamsString);
+    return urlParams.get(paramName);
+}
+
+function tryGetParamFromURL(paramName, backupValue)
+{
+    const allParamsString = window.location.search;
+    const urlParams = new URLSearchParams(allParamsString);
+    let value = urlParams.get(paramName);
+
+    if (value == null)
+    {
+        return backupValue;
+    }
+    else
+    {
+        return value;
+    }
+}
+
+function setParamInURL(paramName, paramContent)
+{
+    const allParamsString = window.location.search;
+    const urlParams = new URLSearchParams(allParamsString);
+    const existingParam = urlParams.get(paramName);
     
-            sortDatabaseByReleaseDate();
+    let refresh = allParamsString;
+
+    if (existingParam == null)
+    {
+        let firstParam = refresh.indexOf('?') == -1;
+        if (firstParam)
+        {
+            refresh += '?' + paramName + '=' + paramContent;
         }
-        else if (sortParam == "alphabetical") {
-            if (init == false)
-                setParamInURL("sortby", "alphabetical");
-    
-            sortDatabaseByAlphabetical();
+        else
+        {
+            refresh += '&' + paramName + '=' + paramContent;
         }
     }
     else
     {
-        let value = document.getElementById("sortByDropdown").value;
+        refresh = refresh.replace(existingParam, paramContent);
+    }
 
-        if (value == "releaseDate") {
-            if (init == false)
-                setParamInURL("sortby", "releaseDate");
-    
-            sortDatabaseByReleaseDate();
+    if (paramContent == "" || paramContent == null)
+    {
+        let firstParam = refresh.indexOf('?') == -1;
+        if (firstParam)
+        {
+            refresh = refresh.replace('?' + paramName + '=', "");
         }
-        else if (value == "alphabetical") {
-            if (init == false)
-                setParamInURL("sortby", "alphabetical");
-    
-            sortDatabaseByAlphabetical();
+        else
+        {
+            refresh = refresh.replace('&' + paramName + '=', "");
         }
     }
-    filteredDatabase = database;
-    loadPage();
-    firstPage();
+
+    window.history.pushState({ path: refresh }, '', refresh);
+}
+
+function search()
+{
+    let searchResults = [];
+
+    if (searchTerm != null && searchTerm != "")
+        setParamInURL("search", searchTerm);
+
+    for (let i = 0; i < fullDatabase.length; i++)
+    {
+        let databaseTitle = fullDatabase[i].title.replace(/^"(.+)"$/,'$1').toLowerCase();
+        if (databaseTitle.includes(searchTerm))
+        {
+            searchResults.push(fullDatabase[i]);
+        }
+    }
+
+    filteredDatabase = searchResults;
+    
+    sortDatabase();
+}
+
+function sortDatabase()
+{
+    document.getElementById("sortByDropdown").value = sortByMethod;
+
+    if (sortByMethod == "release_date")
+    {
+        setParamInURL("sortby", "release_date");
+        sortDatabaseByReleaseDate();
+    }
+    else if (sortByMethod == "alphabetical") 
+    {
+        setParamInURL("sortby", "alphabetical");
+        sortDatabaseByAlphabetical();
+    }
 }
 
 function sortDatabaseByAlphabetical()
 {
-    database.sort((a, b) => a.title.localeCompare(b.title))
+    filteredDatabase.sort((a, b) => a.title.localeCompare(b.title))
 }
 
 function sortDatabaseByReleaseDate()
 {
-    database.sort(function(a, b) {
+    filteredDatabase.sort(function(a, b) {
         var keyA = new Date(a.releaseDate),
           keyB = new Date(b.releaseDate);
         if (keyA > keyB) return -1;
@@ -117,69 +226,11 @@ function sortDatabaseByReleaseDate()
       });
 }
 
-function nextPage()
-{
-    if (gameDataIndex + gamesPerPage < filteredDatabase.length)
-    {
-        usingPageArg = true;
-        gameDataIndex += gamesPerPage;
-        currentPage += 1;
-        setParamInURL("page", currentPage);
-        loadPage();
-    }
-}
-
-function prevPage()
-{
-    if (gameDataIndex - gamesPerPage >= 0)
-    {
-        usingPageArg = true;
-        gameDataIndex -= gamesPerPage;
-        currentPage -= 1;
-        setParamInURL("page", currentPage);
-        loadPage();
-    }
-}
-
-function firstPage()
-{
-    usingPageArg = true;
-    gameDataIndex = 0;
-    currentPage = 1;
-    setParamInURL("page", currentPage);
-    loadPage();
-}
-
-function lastPage()
-{    
-    usingPageArg = true;
-    let maxPages = filteredDatabase.length / gamesPerPage;
-    maxPages = Math.ceil(maxPages);
-
-    gameDataIndex = (maxPages - 1) * gamesPerPage;
-    currentPage = maxPages;
-    setParamInURL("page", currentPage);
-    loadPage();
-}
-
-function goToPage(targetPage)
-{
-    usingPageArg = true;
-    targetIndex = (targetPage - 1) * gamesPerPage;
-    if (targetIndex >= 0 && targetIndex < filteredDatabase.length)
-    {
-        currentPage = targetPage;
-        gameDataIndex = targetIndex;
-        setParamInURL("page", currentPage);
-        loadPage();
-    }
-}
-
-function loadPage()
+function reloadGamePage()
 {
     reviewListElement.innerHTML = "";
     
-    for (let i = gameDataIndex; i < gameDataIndex + gamesPerPage; i++)
+    for (let i = gameIndex; i < gameIndex + gamesPerPage; i++)
     {
         if (i < filteredDatabase.length)
         {
@@ -188,6 +239,11 @@ function loadPage()
             let rating = filteredDatabase[i].rating;
             let saleType = filteredDatabase[i].saleType;
             let boxart = filteredDatabase[i].boxart;
+            let steamID = filteredDatabase[i]["steamID"];
+
+            if (steamID != undefined && steamID != null) {
+                boxart = `https://steamcdn-a.akamaihd.net/steam/apps/${steamID}/library_600x900.jpg`;
+            }
                     
             let elementCode = `
             <div class="reviewCard" onclick="goto(\'game\', \'${gameID}\')">
@@ -208,94 +264,58 @@ function loadPage()
     createPaginationBar();
 }
 
-function getParamFromURL(paramName)
+// Pagination
+
+function nextGamePage()
 {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const param = urlParams.get(paramName);
-    return param;
-}
-
-function setParamInURL(paramName, paramContent)
-{
-    const queryURL = window.location.search;
-    const urlParams = new URLSearchParams(queryURL);
-    const existingParam = urlParams.get(paramName);
-    
-    var refresh = queryURL;
-
-    if (existingParam == null)
+    if (gameIndex + gamesPerPage < filteredDatabase.length)
     {
-        let firstParam = queryURL.indexOf('?') == -1;
-        if (firstParam)
-        {
-            refresh += '?' + paramName + '=' + paramContent;
-        }
-        else
-        {
-            refresh += '&' + paramName + '=' + paramContent;
-        }
-    }
-    else
-    {
-        refresh = refresh.replace(existingParam, paramContent);
-    }
-
-    window.history.pushState({ path: refresh }, '', refresh);
-}
-
-function recoverGameIndexFromURL()
-{
-    const param = getParamFromURL("page");
-
-    if (param == null || param == 0)
-    {
-        currentPage = 1;
-        gameDataIndex = 0;
-    }
-    else
-    {
-        currentPage = param;
-        gameDataIndex = (param - 1) * gamesPerPage;
+        gameIndex += gamesPerPage;
+        currentPage++;
+        setParamInURL("page", currentPage);
+        reloadGamePage();
     }
 }
 
-function recoverSearchFromURL()
+function prevGamePage()
 {
-    const param = getParamFromURL("search");
-    if (param != null)
+    if (gameIndex - gamesPerPage >= 0)
     {
-        searchTerm = param.toLowerCase();
-        search(false);
+        gameIndex -= gamesPerPage;
+        currentPage--;
+        setParamInURL("page", currentPage);
+        reloadGamePage();
     }
 }
 
-function searchUsingInputBar()
+function firstGamePage()
 {
-    const textbox = document.getElementById("searchInput");
-    searchTerm = textbox.value.toLowerCase();
-    search(true);
+    gameIndex = 0;
+    currentPage = 1;
+    setParamInURL("page", currentPage);
+    reloadGamePage();
 }
 
-function search(resetPage)
+function lastGamePage()
 {
-    let searchResults = [];
+    let max_pages = filteredDatabase.length / gamesPerPage;
+    max_pages = Math.ceil(max_pages);
 
-    for (let i = 0; i < database.length; i++)
+    gameIndex = (max_pages - 1) * gamesPerPage;
+    currentPage = max_pages;
+    setParamInURL("page", currentPage);
+    reloadGamePage();
+}
+
+function goToGamePage(target_page)
+{
+    let target_index = (target_page - 1) * gamesPerPage;
+    if (target_index >= 0 && target_index < filteredDatabase.length)
     {
-        let databaseTitle = database[i].title.replace(/^"(.+)"$/,'$1').toLowerCase();
-        if (databaseTitle.includes(searchTerm))
-        {
-            searchResults.push(database[i]);
-        }
-    }
-
-    usingSearchArg = true;
-    filteredDatabase = searchResults;
-
-    if (resetPage)
-    {
-        firstPage();
+        currentPage = target_page;
+        gameIndex = target_index;
+        setParamInURL("page", currentPage);
+        reloadGamePage();
     }
 }
 
@@ -350,71 +370,13 @@ function createPaginationBar()
     for (let i = firstButton; i < lastButton; i++)
     {
         if (i == currentPage)
-            pageContainer.innerHTML += '<div class="paginationCurrent paginationButton paginationPage" onclick="goToPage(' + i + ')">' + i + '</div>';
+            pageContainer.innerHTML += '<div class="paginationCurrent paginationButton paginationPage" onclick="goToGamePage(' + i + ')">' + i + '</div>';
         else
-            pageContainer.innerHTML += '<div class="paginationButton paginationPage" onclick="goToPage(' + i + ')">' + i + '</div>';
+            pageContainer.innerHTML += '<div class="paginationButton paginationPage" onclick="goToGamePage(' + i + ')">' + i + '</div>';
         
             pageButtonCount++;
 
         if (pageButtonCount >= maxPageButtonCount)
             break;
-    }
-}
-
-function delaySearchbarAnimation()
-{
-    const elem = document.getElementById("searchInput");
-    let padding = 12;
-    let border = 2;
-    let searchBarOffset = elem.offsetWidth - (padding*2);
-
-    elem.style.width = 0 + 'px';
-    elem.style.paddingLeft = 0;
-    elem.style.paddingRight = 0;
-    elem.style.borderLeft = 0;
-    elem.style.borderRight = 0;
-    
-    const button = document.getElementById("searchButton");
-    button.style.borderTopLeftRadius = "5px";
-    button.style.borderBottomRadius = "5px";
-
-    setTimeout(function() {
-        button.style.borderTopLeftRadius = "0px";
-        button.style.borderBottomRadius = "0px";
-        animationSearchbar(searchBarOffset, padding, border);
-    }, 200);
-}
-
-function animationSearchbar(targetWidth, targetPadding, targetBorder) {
-    let id = null;
-    const elem = document.getElementById("searchInput");
-    let width = 0;
-    let padding = 0;
-    let border = 0;
-
-    clearInterval(id);
-    id = setInterval(frame, 5);
-    function frame() {
-      if (width >= targetWidth) {
-        elem.style.width = targetWidth + 'px';
-        clearInterval(id);
-      } else {
-        width += 6;
-        elem.style.width = width + 'px';
-
-        if (padding < targetPadding)
-        {
-            padding++;
-            elem.style.paddingLeft = padding + "px";
-            elem.style.paddingRight = padding + "px";
-        }
-
-        if (border < targetBorder)
-        {
-            border++;
-            elem.style.borderLeft = border + "px";
-            elem.style.borderRight = border + "px";
-        }
-      }
     }
 }
