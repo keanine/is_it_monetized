@@ -79,8 +79,17 @@ function start()
     .then((allGameData) => {        
         
         let gameData = allGameData.find(x => x.gameID === gameID);
-        document.getElementById("gameTitle").textContent = gameData.title;
-        document.getElementById("gameBoxart").src = gameData.boxart;
+
+        let title = gameData.title;
+        let boxart = gameData.boxart;
+        let steamID = gameData["steamID"];
+
+        if (steamID != undefined && steamID != null) {
+            boxart = `https://steamcdn-a.akamaihd.net/steam/apps/${steamID}/library_600x900.jpg`;
+        }
+
+        document.getElementById("gameTitle").textContent = title;
+        document.getElementById("gameBoxart").src = boxart;
         
         fetch('./data/games/' + gameID + '.json', {
             headers: {

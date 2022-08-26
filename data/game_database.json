@@ -5,7 +5,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/f66a0c26ea3a640283a18af4915c577a.png",
     "rating": "Light",
     "saleType": "Paid",
-    "releaseDate": "2019-08-27T00:00:00"
+    "releaseDate": "2019-08-27T00:00:00",
+    "steamID": "870780"
   },
   {
     "gameID": "multiversus",
@@ -13,7 +14,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/442790c49402040e5e663eaaa4ed1e7e.png",
     "rating": "Medium",
     "saleType": "Free to Play",
-    "releaseDate": "2022-07-19T00:00:00"
+    "releaseDate": "2022-07-19T00:00:00",
+    "steamID": "1818750"
   },
   {
     "gameID": "metroid_dread",
@@ -21,7 +23,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/38cfea09e10bd786ff870d78de0cb62b.png",
     "rating": "None",
     "saleType": "Paid",
-    "releaseDate": "2021-10-08T00:00:00"
+    "releaseDate": "2021-10-08T00:00:00",
+    "steamID": null
   },
   {
     "gameID": "fortnite",
@@ -29,7 +32,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/6c4d541fc68d426aa028bc05f38164d1.png",
     "rating": "Heavy",
     "saleType": "Free to Play",
-    "releaseDate": "2017-07-21T00:00:00"
+    "releaseDate": "2017-07-21T00:00:00",
+    "steamID": null
   },
   {
     "gameID": "marvels_spiderman_remastered",
@@ -37,7 +41,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/a85d6bc329aeaf43fe76fbb48b8b9325.png",
     "rating": "None",
     "saleType": "Paid",
-    "releaseDate": "2019-08-28T00:00:00"
+    "releaseDate": "2019-08-28T00:00:00",
+    "steamID": "1817070"
   },
   {
     "gameID": "legostarwars_theskywalkersaga",
@@ -45,7 +50,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/077badd2adc72d657dc5917564b0c028.jpg",
     "rating": "Light",
     "saleType": "Paid",
-    "releaseDate": "2022-04-05T00:00:00"
+    "releaseDate": "2022-04-05T00:00:00",
+    "steamID": "920210"
   },
   {
     "gameID": "deathloop",
@@ -53,7 +59,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/c27b7f8c60c0fbdd0efa30fa0821fc3f.png",
     "rating": "None",
     "saleType": "Paid",
-    "releaseDate": "2021-09-14T00:00:00"
+    "releaseDate": "2021-09-14T00:00:00",
+    "steamID": "1252330"
   },
   {
     "gameID": "pulsar_lostcolony",
@@ -61,7 +68,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/b9e4ce50f6c1ba80d31aa4826948a5a6.png",
     "rating": "None",
     "saleType": "Paid",
-    "releaseDate": "2015-09-15T00:00:00"
+    "releaseDate": "2015-09-15T00:00:00",
+    "steamID": "252870"
   },
   {
     "gameID": "dicey_dungeons",
@@ -69,7 +77,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/872f06174139db69135c46e3fe37c267.png",
     "rating": "None",
     "saleType": "Paid",
-    "releaseDate": "2019-08-13T00:00:00"
+    "releaseDate": "2019-08-13T00:00:00",
+    "steamID": "861540"
   },
   {
     "gameID": "legendofzelda_breathofthewild",
@@ -77,7 +86,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/3bf47241fd8ea682509ba6b7cc875f72.jpg",
     "rating": "Light",
     "saleType": "Paid",
-    "releaseDate": "2017-03-03T00:00:00"
+    "releaseDate": "2017-03-03T00:00:00",
+    "steamID": null
   },
   {
     "gameID": "apex_legends",
@@ -85,7 +95,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/0d7a3aef18b1eb97e70a5148e2a2646f.jpg",
     "rating": "Medium",
     "saleType": "Free to Play",
-    "releaseDate": "2019-02-04T00:00:00"
+    "releaseDate": "2019-02-04T00:00:00",
+    "steamID": "1172470"
   },
   {
     "gameID": "f1_2022",
@@ -93,7 +104,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/fba05666aec048c550089d9bc5ac8f53.png",
     "rating": "Medium",
     "saleType": "Paid",
-    "releaseDate": "2022-06-28T00:00:00"
+    "releaseDate": "2022-06-28T00:00:00",
+    "steamID": "1692250"
   },
   {
     "gameID": "f1_2021",
@@ -101,7 +113,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/a577c4583cd6abda9034068c1bae81cc.png",
     "rating": "Medium",
     "saleType": "Paid",
-    "releaseDate": "2021-07-13T00:00:00"
+    "releaseDate": "2021-07-13T00:00:00",
+    "steamID": "1134570"
   },
   {
     "gameID": "starwars_jedifallenorder",
@@ -109,7 +122,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/935a281a70ae21d54479c9c468145f7e.png",
     "rating": "Minimal",
     "saleType": "Paid",
-    "releaseDate": "2019-11-15T00:00:00"
+    "releaseDate": "2019-11-15T00:00:00",
+    "steamID": "1172380"
   },
   {
     "gameID": "starwars_battlefront2ea",
@@ -117,7 +131,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/263253aaa403d4555a972b520d9f03eb.png",
     "rating": "Light",
     "saleType": "Paid",
-    "releaseDate": "2017-11-17T00:00:00"
+    "releaseDate": "2017-11-17T00:00:00",
+    "steamID": "1237950"
   },
   {
     "gameID": "finalfantasy14",
@@ -125,7 +140,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/e3354b083f03a9ceb5e01813104be277.png",
     "rating": "Heavy",
     "saleType": "Paid + Subscription",
-    "releaseDate": "2013-08-27T00:00:00"
+    "releaseDate": "2013-08-27T00:00:00",
+    "steamID": "39210"
   },
   {
     "gameID": "supermariorun",
@@ -133,7 +149,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/5ccf83f735dac5a7b5bf540d18af2bf5.png",
     "rating": "None",
     "saleType": "Freemium",
-    "releaseDate": "2016-12-15T00:00:00"
+    "releaseDate": "2016-12-15T00:00:00",
+    "steamID": null
   },
   {
     "gameID": "mariokarttour",
@@ -141,7 +158,8 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/43ed0ac68df1a351eaf025206a42b9b2.png",
     "rating": "Heavy",
     "saleType": "Free to Play",
-    "releaseDate": "2019-09-25T00:00:00"
+    "releaseDate": "2019-09-25T00:00:00",
+    "steamID": null
   },
   {
     "gameID": "splitgate",
@@ -149,6 +167,7 @@
     "boxart": "https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/86f18d065dd8f77a0b175170b91f1223.jpg",
     "rating": "Medium",
     "saleType": "Free to Play",
-    "releaseDate": "2019-05-24T00:00:00"
+    "releaseDate": "2019-05-24T00:00:00",
+    "steamID": "677620"
   }
 ]
